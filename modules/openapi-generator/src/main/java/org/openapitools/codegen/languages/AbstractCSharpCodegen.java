@@ -490,6 +490,20 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegen implements Co
                         }
                     }
                 }
+
+                List<CodegenProperty> allOf = cm.getComposedSchemas().getAllOf();
+                if (allOf != null) {
+                    Set<String> dataTypeSet = new HashSet<>();
+                    for (CodegenProperty allOfProperty : allOf) {
+                        if (dataTypeSet.contains(allOfProperty.dataType)) {
+                            // add "x-duplicated-data-type" to indicate if the dataType already occurs before
+                            // in other sub-schemas of allOf/anyOf/oneOf
+                            allOfProperty.vendorExtensions.putIfAbsent("x-composed-data-type", true);
+                        } else {
+                            dataTypeSet.add(allOfProperty.dataType);
+                        }
+                    }
+                }
             }
 
             if (cm.isEnum && !cm.vendorExtensions.containsKey(this.zeroBasedEnumVendorExtension)) {
@@ -599,6 +613,53 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegen implements Co
             for (CodegenProperty property : model.nonNullableVars) {
                 patchProperty(enumRefs, model, property);
             }
+
+            // add support for allOf inheritance: we need to add parent vars and imports
+            // so that ctor base() call on base class constructor gets correct ctor
+            // parameters. This is more or less a copy of the corresponding
+            // SpringCodegen.java implementation
+            ModelsMap modelsMap = entry.getValue();
+            Set<String> inheritedImports = new HashSet<>();
+            Map<String, CodegenProperty> propertyHash = new HashMap<>(model.vars.size());
+            for (final CodegenProperty property : model.vars) {
+                propertyHash.put(property.name, property);
+            }
+            CodegenModel parentCodegenModel = model.parentModel;
+            while (parentCodegenModel != null) {
+                for (final CodegenProperty property : parentCodegenModel.vars) {
+                    // helper list of parentVars simplifies templating
+                    if (!propertyHash.containsKey(property.name)) {
+                        propertyHash.put(property.name, property);
+                        final CodegenProperty parentVar = property.clone();
+                        parentVar.isInherited = true;
+                        model.parentVars.add(parentVar);
+                        Set<String> imports = parentVar
+                                .getImports(true, this.importBaseType, generatorMetadata.getFeatureSet()).stream()
+                                .filter(Objects::nonNull).collect(Collectors.toSet());
+                        for (String imp : imports) {
+                            // Avoid dupes
+                            if (!model.getImports().contains(imp)) {
+                                inheritedImports.add(imp);
+                                model.getImports().add(imp);
+                            }
+                        }
+                    }
+                }
+                parentCodegenModel = parentCodegenModel.getParentModel();
+            }
+            if (model.getParentModel() != null) {
+                model.parentRequiredVars = new ArrayList<>(model.getParentModel().requiredVars);
+            }
+            // There must be a better way ...
+            for (String imp : inheritedImports) {
+                String qimp = importMapping().get(imp);
+                if (qimp != null) {
+                    Map<String, String> toAdd = new HashMap<>();
+                    toAdd.put("import", qimp);
+                    modelsMap.getImports().add(toAdd);
+                }
+            }
+
         }
         return processed;
     }
@@ -761,7 +822,7 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegen implements Co
                             operation.returnContainer = operation.returnType;
                             if (this.returnICollection && (
                                     typeMapping.startsWith("List") ||
-                                            typeMapping.startsWith("Collection"))) {
+                                    typeMapping.startsWith("Collection"))) {
                                 // NOTE: ICollection works for both List<T> and Collection<T>
                                 int genericStart = typeMapping.indexOf("<");
                                 if (genericStart > 0) {
@@ -1642,12 +1703,12 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegen implements Co
             Pattern hasModifiers = Pattern.compile(".*/[gmiyuvsdlnx]+$");
 
             int end = hasModifiers.matcher(pattern).find()
-                ? pattern.lastIndexOf('/')
-                : pattern.length() - 1;
+                    ? pattern.lastIndexOf('/')
+                    : pattern.length() - 1;
 
             int start = pattern.startsWith("/")
-                ? 1
-                : 0;
+                    ? 1
+                    : 0;
 
             Map<Character, String> optionsMap = new HashMap();
             optionsMap.put('i', "IgnoreCase");
