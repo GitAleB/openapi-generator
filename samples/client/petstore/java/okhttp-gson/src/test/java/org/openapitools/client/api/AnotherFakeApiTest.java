@@ -47,6 +47,18 @@ public class AnotherFakeApiTest {
     }
 
     /**
+     * parameter array number default value
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getParameterArrayNumberTest() throws ApiException {
+        List<Integer> array = null;
+        api.getParameterArrayNumber(array);
+        // TODO: test validations
+    }
+
+    /**
      * parameter string number
      *
      * @throws ApiException if the Api call fails
@@ -55,6 +67,18 @@ public class AnotherFakeApiTest {
     public void getParameterStringNumberTest() throws ApiException {
         BigDecimal stringNumber = null;
         api.getParameterStringNumber(stringNumber);
+        // TODO: test validations
+    }
+
+    /**
+     * null request body
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void nullRequestBodyTest() throws ApiException {
+        String acceptLanguage = null;
+        api.nullRequestBody(acceptLanguage);
         // TODO: test validations
     }
 

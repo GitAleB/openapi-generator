@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.Category;
 import org.openapitools.client.model.NewPetCategoryInlineAllof;
@@ -50,6 +51,22 @@ public class NewPetTest {
     }
 
     /**
+     * Test the property 'categoryRefToInlineAllofString'
+     */
+    @Test
+    public void categoryRefToInlineAllofStringTest() {
+        // TODO: test categoryRefToInlineAllofString
+    }
+
+    /**
+     * Test the property 'categoryInlineAllofString'
+     */
+    @Test
+    public void categoryInlineAllofStringTest() {
+        // TODO: test categoryInlineAllofString
+    }
+
+    /**
      * Test the property 'categoryInlineAllof'
      */
     @Test
@@ -63,6 +80,22 @@ public class NewPetTest {
     @Test
     public void categoryAllOfRefTest() {
         // TODO: test categoryAllOfRef
+    }
+
+    /**
+     * Test the property 'categoryAllOfRefDescription'
+     */
+    @Test
+    public void categoryAllOfRefDescriptionTest() {
+        // TODO: test categoryAllOfRefDescription
+    }
+
+    /**
+     * Test the property 'categoryAllOfRefDescriptionReadonly'
+     */
+    @Test
+    public void categoryAllOfRefDescriptionReadonlyTest() {
+        // TODO: test categoryAllOfRefDescriptionReadonly
     }
 
     /**

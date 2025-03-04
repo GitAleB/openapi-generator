@@ -40,6 +40,7 @@ import 'package:openapi/src/model/pet.dart';
 import 'package:openapi/src/model/read_only_first.dart';
 import 'package:openapi/src/model/special_model_name.dart';
 import 'package:openapi/src/model/tag.dart';
+import 'package:openapi/src/model/test_inline_freeform_additional_properties_request.dart';
 import 'package:openapi/src/model/user.dart';
 
 final _regList = RegExp(r'^List<(.*)>$');
@@ -162,6 +163,8 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
           return SpecialModelName.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'Tag':
           return Tag.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'TestInlineFreeformAdditionalPropertiesRequest':
+          return TestInlineFreeformAdditionalPropertiesRequest.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'User':
           return User.fromJson(value as Map<String, dynamic>) as ReturnType;
         default:
@@ -180,13 +183,13 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
               .toSet() as ReturnType;
           }
           if (value is Map && (match = _regMap.firstMatch(targetType)) != null) {
-            targetType = match![1]!; // ignore: parameter_assignments
-            return Map<dynamic, BaseType>.fromIterables(
-              value.keys,
+            targetType = match![1]!.trim(); // ignore: parameter_assignments
+            return Map<String, BaseType>.fromIterables(
+              value.keys as Iterable<String>,
               value.values.map((dynamic v) => deserialize<BaseType, BaseType>(v, targetType, growable: growable)),
             ) as ReturnType;
           }
           break;
-    } 
+    }
     throw Exception('Cannot deserialize');
   }

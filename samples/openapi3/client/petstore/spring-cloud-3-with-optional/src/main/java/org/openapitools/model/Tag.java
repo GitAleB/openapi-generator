@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -17,48 +18,48 @@ import jakarta.annotation.Generated;
  * A tag for a pet
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
 public class Tag {
 
-  private Long id;
+  private Optional<Long> id = Optional.empty();
 
-  private String name;
+  private Optional<String> name = Optional.empty();
 
   public Tag id(Long id) {
-    this.id = id;
+    this.id = Optional.ofNullable(id);
     return this;
   }
 
   /**
    * Get id
    * @return id
-  */
+   */
   
   @JsonProperty("id")
-  public Long getId() {
+  public Optional<Long> getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(Optional<Long> id) {
     this.id = id;
   }
 
   public Tag name(String name) {
-    this.name = name;
+    this.name = Optional.ofNullable(name);
     return this;
   }
 
   /**
    * Get name
    * @return name
-  */
+   */
   
   @JsonProperty("name")
-  public String getName() {
+  public Optional<String> getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public void setName(Optional<String> name) {
     this.name = name;
   }
 

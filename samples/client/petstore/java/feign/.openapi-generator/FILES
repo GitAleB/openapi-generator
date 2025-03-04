@@ -19,6 +19,8 @@ src/main/java/org/openapitools/client/ApiResponseDecoder.java
 src/main/java/org/openapitools/client/EncodingUtils.java
 src/main/java/org/openapitools/client/ParamExpander.java
 src/main/java/org/openapitools/client/RFC3339DateFormat.java
+src/main/java/org/openapitools/client/RFC3339InstantDeserializer.java
+src/main/java/org/openapitools/client/RFC3339JavaTimeModule.java
 src/main/java/org/openapitools/client/ServerConfiguration.java
 src/main/java/org/openapitools/client/ServerVariable.java
 src/main/java/org/openapitools/client/StringUtil.java
@@ -87,4 +89,5 @@ src/main/java/org/openapitools/client/model/ReadOnlyFirst.java
 src/main/java/org/openapitools/client/model/SingleRefType.java
 src/main/java/org/openapitools/client/model/SpecialModelName.java
 src/main/java/org/openapitools/client/model/Tag.java
+src/main/java/org/openapitools/client/model/TestInlineFreeformAdditionalPropertiesRequest.java
 src/main/java/org/openapitools/client/model/User.java

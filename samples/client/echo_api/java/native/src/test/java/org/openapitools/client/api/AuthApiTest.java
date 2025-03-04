@@ -14,8 +14,8 @@
 package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +27,7 @@ import java.util.Set;
 /**
  * API tests for AuthApi
  */
-@Ignore
+@Disabled
 public class AuthApiTest {
 
     private final AuthApi api = new AuthApi();
@@ -45,6 +45,22 @@ public class AuthApiTest {
     public void testAuthHttpBasicTest() throws ApiException {
         String response = 
         api.testAuthHttpBasic();
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * To test HTTP bearer authentication
+     *
+     * To test HTTP bearer authentication
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void testAuthHttpBearerTest() throws ApiException {
+        String response = 
+        api.testAuthHttpBearer();
         
         // TODO: test validations
     }

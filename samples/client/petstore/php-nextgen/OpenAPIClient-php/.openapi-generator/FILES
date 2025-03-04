@@ -29,6 +29,7 @@ docs/Model/Dog.md
 docs/Model/EnumArrays.md
 docs/Model/EnumClass.md
 docs/Model/EnumTest.md
+docs/Model/EnumWithNameAndDescription.md
 docs/Model/FakeBigDecimalMap200Response.md
 docs/Model/File.md
 docs/Model/FileSchemaTestClass.md
@@ -59,6 +60,7 @@ docs/Model/ReadOnlyFirst.md
 docs/Model/SingleRefType.md
 docs/Model/SpecialModelName.md
 docs/Model/Tag.md
+docs/Model/TestInlineFreeformAdditionalPropertiesRequest.md
 docs/Model/User.md
 git_push.sh
 phpunit.xml.dist
@@ -90,6 +92,7 @@ src/Model/Dog.php
 src/Model/EnumArrays.php
 src/Model/EnumClass.php
 src/Model/EnumTest.php
+src/Model/EnumWithNameAndDescription.php
 src/Model/FakeBigDecimalMap200Response.php
 src/Model/File.php
 src/Model/FileSchemaTestClass.php
@@ -121,5 +124,6 @@ src/Model/ReadOnlyFirst.php
 src/Model/SingleRefType.php
 src/Model/SpecialModelName.php
 src/Model/Tag.php
+src/Model/TestInlineFreeformAdditionalPropertiesRequest.php
 src/Model/User.php
 src/ObjectSerializer.php

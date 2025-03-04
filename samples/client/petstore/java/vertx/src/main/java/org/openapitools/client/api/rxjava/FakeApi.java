@@ -13,6 +13,7 @@ import java.time.OffsetDateTime;
 import org.openapitools.client.model.OuterComposite;
 import org.openapitools.client.model.OuterObjectWithEnumProperty;
 import org.openapitools.client.model.Pet;
+import org.openapitools.client.model.TestInlineFreeformAdditionalPropertiesRequest;
 import org.openapitools.client.model.User;
 import org.openapitools.client.ApiClient;
 
@@ -22,7 +23,7 @@ import rx.Single;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0-SNAPSHOT")
 public class FakeApi {
 
     private final org.openapitools.client.api.FakeApi delegate;
@@ -393,6 +394,51 @@ public class FakeApi {
     public Single<OuterObjectWithEnumProperty> rxFakePropertyEnumIntegerSerialize(OuterObjectWithEnumProperty outerObjectWithEnumProperty, ApiClient.AuthInfo authInfo) {
         return Single.create(new io.vertx.rx.java.SingleOnSubscribeAdapter<>(fut ->
             delegate.fakePropertyEnumIntegerSerialize(outerObjectWithEnumProperty, authInfo, fut)
+        ));
+    }
+    /**
+    * test referenced additionalProperties
+    * 
+    * @param requestBody request body (required)
+    * @param resultHandler Asynchronous result handler
+    */
+    public void testAdditionalPropertiesReference(Map<String, Object> requestBody, Handler<AsyncResult<Void>> resultHandler) {
+        delegate.testAdditionalPropertiesReference(requestBody, resultHandler);
+    }
+
+    /**
+    * test referenced additionalProperties
+    * 
+    * @param requestBody request body (required)
+    * @param authInfo call specific auth overrides
+    * @param resultHandler Asynchronous result handler
+    */
+    public void testAdditionalPropertiesReference(Map<String, Object> requestBody, ApiClient.AuthInfo authInfo, Handler<AsyncResult<Void>> resultHandler) {
+        delegate.testAdditionalPropertiesReference(requestBody, authInfo, resultHandler);
+    }
+
+    /**
+    * test referenced additionalProperties
+    * 
+    * @param requestBody request body (required)
+    * @return Asynchronous result handler (RxJava Single)
+    */
+    public Single<Void> rxTestAdditionalPropertiesReference(Map<String, Object> requestBody) {
+        return Single.create(new io.vertx.rx.java.SingleOnSubscribeAdapter<>(fut ->
+            delegate.testAdditionalPropertiesReference(requestBody, fut)
+        ));
+    }
+
+    /**
+    * test referenced additionalProperties
+    * 
+    * @param requestBody request body (required)
+    * @param authInfo call specific auth overrides
+    * @return Asynchronous result handler (RxJava Single)
+    */
+    public Single<Void> rxTestAdditionalPropertiesReference(Map<String, Object> requestBody, ApiClient.AuthInfo authInfo) {
+        return Single.create(new io.vertx.rx.java.SingleOnSubscribeAdapter<>(fut ->
+            delegate.testAdditionalPropertiesReference(requestBody, authInfo, fut)
         ));
     }
     /**
@@ -864,6 +910,51 @@ public class FakeApi {
         ));
     }
     /**
+    * test inline free-form additionalProperties
+    * 
+    * @param testInlineFreeformAdditionalPropertiesRequest request body (required)
+    * @param resultHandler Asynchronous result handler
+    */
+    public void testInlineFreeformAdditionalProperties(TestInlineFreeformAdditionalPropertiesRequest testInlineFreeformAdditionalPropertiesRequest, Handler<AsyncResult<Void>> resultHandler) {
+        delegate.testInlineFreeformAdditionalProperties(testInlineFreeformAdditionalPropertiesRequest, resultHandler);
+    }
+
+    /**
+    * test inline free-form additionalProperties
+    * 
+    * @param testInlineFreeformAdditionalPropertiesRequest request body (required)
+    * @param authInfo call specific auth overrides
+    * @param resultHandler Asynchronous result handler
+    */
+    public void testInlineFreeformAdditionalProperties(TestInlineFreeformAdditionalPropertiesRequest testInlineFreeformAdditionalPropertiesRequest, ApiClient.AuthInfo authInfo, Handler<AsyncResult<Void>> resultHandler) {
+        delegate.testInlineFreeformAdditionalProperties(testInlineFreeformAdditionalPropertiesRequest, authInfo, resultHandler);
+    }
+
+    /**
+    * test inline free-form additionalProperties
+    * 
+    * @param testInlineFreeformAdditionalPropertiesRequest request body (required)
+    * @return Asynchronous result handler (RxJava Single)
+    */
+    public Single<Void> rxTestInlineFreeformAdditionalProperties(TestInlineFreeformAdditionalPropertiesRequest testInlineFreeformAdditionalPropertiesRequest) {
+        return Single.create(new io.vertx.rx.java.SingleOnSubscribeAdapter<>(fut ->
+            delegate.testInlineFreeformAdditionalProperties(testInlineFreeformAdditionalPropertiesRequest, fut)
+        ));
+    }
+
+    /**
+    * test inline free-form additionalProperties
+    * 
+    * @param testInlineFreeformAdditionalPropertiesRequest request body (required)
+    * @param authInfo call specific auth overrides
+    * @return Asynchronous result handler (RxJava Single)
+    */
+    public Single<Void> rxTestInlineFreeformAdditionalProperties(TestInlineFreeformAdditionalPropertiesRequest testInlineFreeformAdditionalPropertiesRequest, ApiClient.AuthInfo authInfo) {
+        return Single.create(new io.vertx.rx.java.SingleOnSubscribeAdapter<>(fut ->
+            delegate.testInlineFreeformAdditionalProperties(testInlineFreeformAdditionalPropertiesRequest, authInfo, fut)
+        ));
+    }
+    /**
     * test json serialization of form data
     * 
     * @param param field1 (required)
@@ -1024,6 +1115,51 @@ public class FakeApi {
     public Single<Void> rxTestQueryParameterCollectionFormat(List<String> pipe, List<String> ioutil, List<String> http, List<String> url, List<String> context, String allowEmpty, Map<String, String> language, ApiClient.AuthInfo authInfo) {
         return Single.create(new io.vertx.rx.java.SingleOnSubscribeAdapter<>(fut ->
             delegate.testQueryParameterCollectionFormat(pipe, ioutil, http, url, context, allowEmpty, language, authInfo, fut)
+        ));
+    }
+    /**
+    * test referenced string map
+    * 
+    * @param requestBody request body (required)
+    * @param resultHandler Asynchronous result handler
+    */
+    public void testStringMapReference(Map<String, String> requestBody, Handler<AsyncResult<Void>> resultHandler) {
+        delegate.testStringMapReference(requestBody, resultHandler);
+    }
+
+    /**
+    * test referenced string map
+    * 
+    * @param requestBody request body (required)
+    * @param authInfo call specific auth overrides
+    * @param resultHandler Asynchronous result handler
+    */
+    public void testStringMapReference(Map<String, String> requestBody, ApiClient.AuthInfo authInfo, Handler<AsyncResult<Void>> resultHandler) {
+        delegate.testStringMapReference(requestBody, authInfo, resultHandler);
+    }
+
+    /**
+    * test referenced string map
+    * 
+    * @param requestBody request body (required)
+    * @return Asynchronous result handler (RxJava Single)
+    */
+    public Single<Void> rxTestStringMapReference(Map<String, String> requestBody) {
+        return Single.create(new io.vertx.rx.java.SingleOnSubscribeAdapter<>(fut ->
+            delegate.testStringMapReference(requestBody, fut)
+        ));
+    }
+
+    /**
+    * test referenced string map
+    * 
+    * @param requestBody request body (required)
+    * @param authInfo call specific auth overrides
+    * @return Asynchronous result handler (RxJava Single)
+    */
+    public Single<Void> rxTestStringMapReference(Map<String, String> requestBody, ApiClient.AuthInfo authInfo) {
+        return Single.create(new io.vertx.rx.java.SingleOnSubscribeAdapter<>(fut ->
+            delegate.testStringMapReference(requestBody, authInfo, fut)
         ));
     }
 
